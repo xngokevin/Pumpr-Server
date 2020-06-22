@@ -4,8 +4,22 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     namespace :v1 do
+
       resources :authentication, only: [:create]
       resources :users
+
+      resources :friendships do
+        collection do
+          get  :blocked_friends
+        end
+        member do
+          post :send_request
+          post :accept_request
+          post :decline_request
+          post :remove_friend
+          post :block_friend
+        end
+      end
     end
   end
 end

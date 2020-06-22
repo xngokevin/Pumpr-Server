@@ -1,4 +1,5 @@
-class Api::V1::UsersController < ActionController::API
+class Api::V1::UsersController < Api::ApplicationController
+
   def index
     users = User.all
     render json: users.to_json, status: :ok
@@ -8,8 +9,5 @@ class Api::V1::UsersController < ActionController::API
   end
 
   def create
-  end
-
-  def delete
   end
 end
