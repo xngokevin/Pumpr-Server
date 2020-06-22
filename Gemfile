@@ -47,6 +47,9 @@ gem 'simple_command'
 # API documentation generator
 gem 'apipie-rails'
 
+# Friendship features
+gem 'has_friendship'
+
 #
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

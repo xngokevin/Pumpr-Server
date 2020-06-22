@@ -19,4 +19,14 @@ if User.none?
       email: "xngokevin@yahoo.com"
   )
 
+
+  User.create(
+      first_name: "Kevin2",
+      middle_name: "Cuong",
+      last_name: "Ngo",
+      phone_number: "4082282294",
+      password: "development",
+      password_confirmation: "development",
+      email: "xngokevin@gmail.com"
+  )
 end
