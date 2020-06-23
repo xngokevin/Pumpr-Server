@@ -7,8 +7,10 @@ class Api::V1::FriendshipsController < Api::ApplicationController
   end
 
   def blocked_friends
-    render json: @current_user.blocked_friends,
-           status: :ok
+    # render json: @current_user.blocked_friends,
+    #        status: :ok
+
+    json_response(@current_user.blocked_friends, :ok)
   end
 
   def send_request

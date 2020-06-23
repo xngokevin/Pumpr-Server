@@ -10,13 +10,10 @@ class Api::V1::AuthenticationController < Api::ApplicationController
     )
 
     if command.success?
-      render json: {
-          auth_token: command.result
-      }
+      json_response( { auth_token: command.result }, :ok)
+
     else
-      render json: {
-          error: command.errors
-      }, status: :unauthorized
+      json_response( { error: command.errors }, :unauthorized)
     end
   end
 end

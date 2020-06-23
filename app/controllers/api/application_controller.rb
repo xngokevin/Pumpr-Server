@@ -1,5 +1,8 @@
 module Api
   class ApplicationController < ActionController::API
+
+    include Response
+
     before_action :authenticate_request
     attr_reader :current_user
 
