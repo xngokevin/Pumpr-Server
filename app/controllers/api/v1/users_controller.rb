@@ -28,6 +28,11 @@ class Api::V1::UsersController < Api::ApplicationController
     end
   end
 
+
+  def photo
+
+  end
+
   private
 
   def user_params

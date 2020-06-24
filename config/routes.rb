@@ -6,7 +6,11 @@ Rails.application.routes.draw do
     namespace :v1 do
 
       resources :authentication, only: [:create]
-      resources :users
+      resources :users do
+        member do
+          resources :photos, controller: 'user_photos'
+        end
+      end
 
       resources :friendships do
         collection do
