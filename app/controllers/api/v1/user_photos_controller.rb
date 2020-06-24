@@ -1,10 +1,13 @@
 class Api::V1::UserPhotosController < Api::ApplicationController
   def create
-    puts 'am here'
+    puts user_params
+    @current_user.photos.attach(params[:image])
+
+    json_response @current_user, :ok
   end
 
   def show
-
+    json_response rails_blob_url(@current_user.photos[0]), :ok
   end
 
   def update
@@ -13,5 +16,13 @@ class Api::V1::UserPhotosController < Api::ApplicationController
 
   def delete
 
+  end
+
+
+  private
+  def user_params
+    params.permit(
+        :image
+    )
   end
 end

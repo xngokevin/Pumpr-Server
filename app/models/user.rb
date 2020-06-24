@@ -9,8 +9,8 @@ class User < ApplicationRecord
   validates_presence_of :email, uniqueness: { case_sensitive: false }
   validates :password, :length => { :minimum => 5 }, allow_nil: true
 
-  has_one_attached :main_photo
-  has_many_attached :photos
+  has_many_attached :photos, dependent: :destroy
+  validates :photos, length: { minimum: 0, maximum: 6 }
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
