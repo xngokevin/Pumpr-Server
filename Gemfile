@@ -60,7 +60,7 @@ gem 'active_model_serializers'
 gem 'file_validators'
 
 # Json serializer for ruby objects created by netflix
-gem 'fast_jsonapi'
+# gem 'fast_jsonapi'
 
 
 

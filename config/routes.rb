@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :users do
         member do
           resources :photos
-          resources :profile_data
+          get :profile_data, to: 'profile_data#show'
+          put :profile_data, to: 'profile_data#update'
         end
       end
 
