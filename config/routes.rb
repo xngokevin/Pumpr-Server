@@ -8,7 +8,7 @@ Rails.application.routes.draw do
       resources :authentication, only: [:create]
       resources :users do
         member do
-          resources :photos, controller: 'user_photos'
+          resources :photos
         end
       end
 

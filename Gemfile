@@ -23,7 +23,7 @@ gem 'redis', '~> 4.0'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Sendgrid for sending emails
 gem 'sendgrid-ruby'
@@ -52,6 +52,16 @@ gem 'has_friendship'
 
 # AWS
 gem 'aws-sdk-s3'
+
+# Serializer for models
+gem 'active_model_serializers'
+
+# Validate file uploads
+gem 'file_validators'
+
+# Json serializer for ruby objects created by netflix
+gem 'fast_jsonapi'
+
 
 
 group :development, :test do
