@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  description: MyString
+  height: 1
+  display_height: false
+  weight: 1
+  display_weight: false
+  goals: MyString
+  display_goals: false
+
+two:
+  user_id: 1
+  description: MyString
+  height: 1
+  display_height: false
+  weight: 1
+  display_weight: false
+  goals: MyString
+  display_goals: false

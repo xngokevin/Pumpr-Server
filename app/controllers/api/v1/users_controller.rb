@@ -32,15 +32,22 @@ class Api::V1::UsersController < Api::ApplicationController
 
     user = User.new(user_params)
     if user.save
-      command = AuthenticateUser(user.email, user.password).call
-      auth_token = command.result
+
+      command = AuthenticateUser.call(
+          params[:email],
+          params[:password]
+      )
 
       response = {
-          message: Message.account_created,
-          auth_token: auth_token
+          message: Messages.account_created,
+          auth_token: command.result
       }
 
-      json_response(response, :created)
+      if command.success?
+        json_response(response, :created)
+      else
+        json_response({error: "An error occurred"}, :internal_server_error)
+      end
     else
       json_response(user.errors, :bad_request)
     end

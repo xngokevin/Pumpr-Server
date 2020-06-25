@@ -4,6 +4,9 @@ class User < ApplicationRecord
 
   has_friendship
 
+  has_one :profile_data, dependent: :destroy
+  after_create :create_profile_data
+
   has_one_attached :profile_photo, dependent: :destroy
   has_many_attached :photos, dependent: :destroy
 
@@ -19,4 +22,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+
+
+  private
+  def create_profile_data
+    ProfileData.create(user_id: self.id)
+  end
 end

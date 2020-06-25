@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_24_200448) do
+ActiveRecord::Schema.define(version: 2020_06_25_204530) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,6 +45,20 @@ ActiveRecord::Schema.define(version: 2020_06_24_200448) do
     t.integer "blocker_id"
     t.integer "status"
     t.index ["friendable_id", "friend_id"], name: "index_friendships_on_friendable_id_and_friend_id", unique: true
+  end
+
+  create_table "profile_data", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "description"
+    t.boolean "display_description"
+    t.integer "height"
+    t.boolean "display_height"
+    t.integer "weight"
+    t.boolean "display_weight"
+    t.string "goals"
+    t.boolean "display_goals"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

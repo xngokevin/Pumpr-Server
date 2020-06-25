@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :users do
         member do
           resources :photos
+          resources :profile_data
         end
       end
 
