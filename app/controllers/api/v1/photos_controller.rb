@@ -11,10 +11,18 @@ class Api::V1::PhotosController < Api::ApplicationController
   end
 
   def show
+
     json_response UserSerializer.new(@current_user).photos, :ok
+
   end
 
   def update
+
+    photo = @current_user.photos.find(params[:id].to_i)
+    if photo
+      photo.attach(params[:image])
+    end
+    json_response UserSerializer.new(@current_user).photos, :ok
 
   end
 
@@ -25,6 +33,7 @@ class Api::V1::PhotosController < Api::ApplicationController
       photo.purge
     end
     json_response UserSerializer.new(@current_user).photos, :ok
+
   end
 
 end
