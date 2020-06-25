@@ -7,7 +7,25 @@ class Api::V1::UsersController < Api::ApplicationController
     render json: users.to_json, status: :ok
   end
 
+  # Show user, check friendship
   def show
+    user = User.find_by_id(params[:id])
+    if user
+      json_response(user, :ok)
+    else
+      json_response({error: "User not found"}, :not_found)
+    end
+  end
+
+  def update
+
+    @current_user.update(user_params)
+    if @current_user.save
+      json_response(@current_user, :ok)
+    else
+      json_response(@current_user.errors, :ok)
+    end
+
   end
 
   def create
