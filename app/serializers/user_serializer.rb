@@ -1,6 +1,7 @@
 class UserSerializer < ActiveModel::Serializer
   include Rails.application.routes.url_helpers
-  attributes :id, :first_name, :last_name, :phone_number, :photos, :profile_data
+  attributes :id, :first_name, :last_name, :phone_number, :photos
+  has_one :profile_data
 
 
   def photos
@@ -15,9 +16,5 @@ class UserSerializer < ActiveModel::Serializer
           large_image: rails_blob_path(photo, only_path: true)
       }
     end
-  end
-
-  def profile_data
-    ProfileDataSerializer.new(self.object.profile_data)
   end
 end

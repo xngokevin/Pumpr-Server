@@ -16,7 +16,7 @@ module PumprServer
     config.middleware.use OliveBranch::Middleware
 
 
-    # Join libs ffodler
+    # Join libs folder
     config.autoload_paths <<  Rails.root.join("lib")
 
     # Settings in config/environments/* take precedence over those specified here.
