@@ -8,6 +8,7 @@
 
 
 if User.none?
+  User.__elasticsearch__.create_index!(force: true)
   puts "Creating Users"
   User.create(
       first_name: "Kevin",

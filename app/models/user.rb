@@ -1,3 +1,6 @@
+require 'elasticsearch/model'
+
+
 class User < ApplicationRecord
   # has_secure_password
   include ActiveModel::Validations
@@ -23,7 +26,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
 
   private
   def create_profile_data

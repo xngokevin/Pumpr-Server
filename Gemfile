@@ -59,6 +59,9 @@ gem 'active_model_serializers'
 # Validate file uploads
 gem 'file_validators'
 
+# Elastic search
+gem 'elasticsearch-model'
+
 # Json serializer for ruby objects created by netflix
 # gem 'fast_jsonapi'
 
